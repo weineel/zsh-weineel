@@ -1,9 +1,9 @@
 # alias
-alias -g ..='cd ..'
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
-alias -g ......='../../../../..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
 
 alias gcza='git add . && git cz'
 alias lg='inno-lane git'
