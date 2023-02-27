@@ -1,9 +1,12 @@
+setopt auto_cd # 开启目录名直接 cd
+setopt auto_pushd
+setopt share_history # share history between sessions
+
 # alias
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
+alias ...='../..'
+alias ....='../../..'
+alias .....='../../../..'
+alias ......='../../../../..'
 
 alias gcza='git add . && git cz'
 alias lg='inno-lane git'
