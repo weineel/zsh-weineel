@@ -26,14 +26,15 @@ function copyfile {
   clipcopy $1
 }
 
-# 需要结合 clash 一起使用
+# 需要结合 clash 一起使用, 或则结合第三方的代理地址
 function proxy_on() {
-    export http_proxy=http://127.0.0.1:7890
-    export https_proxy=$http_proxy
-    echo -e "终端代理已开启。"
+  # 第一个参数是代理地址，默认是 http://127.0.0.1:7890
+  export http_proxy=${1:-http://127.0.0.1:7890}
+  export https_proxy=$http_proxy
+  echo -e "终端代理已开启。"
 }
 
 function proxy_off() {
-    unset http_proxy https_proxy
-    echo -e "终端代理已关闭。"
+  unset http_proxy https_proxy
+  echo -e "终端代理已关闭。"
 }
