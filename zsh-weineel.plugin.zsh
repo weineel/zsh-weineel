@@ -31,10 +31,14 @@ function proxy_on() {
   # 第一个参数是代理地址，默认是 http://127.0.0.1:7890
   export http_proxy=${1:-http://127.0.0.1:7890}
   export https_proxy=$http_proxy
-  echo -e "终端代理已开启: $http_proxy"
+	export no_proxy=127.0.0.1,localhost
+  export HTTP_PROXY=$http_proxy
+  export HTTPS_PROXY=$http_proxy
+ 	export NO_PROXY=$no_proxy
+  echo -e "\033[32m[√] 终端代理已开启: $http_proxy"
 }
 
 function proxy_off() {
-  unset http_proxy https_proxy
-  echo -e "终端代理已关闭"
+  unset http_proxy https_proxy no_proxy HTTP_PROXY HTTPS_PROXY NO_PROXY
+  echo -e "\033[31m[×] 终端代理已关闭"
 }
