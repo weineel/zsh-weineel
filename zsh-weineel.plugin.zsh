@@ -42,3 +42,7 @@ function proxy_off() {
   unset http_proxy https_proxy no_proxy HTTP_PROXY HTTPS_PROXY NO_PROXY
   echo -e "\033[31m[×] 终端代理已关闭"
 }
+
+function proxy_show() {
+  env | grep -E 'http_proxy|https_proxy|no_proxy|HTTP_PROXY|HTTPS_PROXY|NO_PROXY'
+}
