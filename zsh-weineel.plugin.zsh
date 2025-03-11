@@ -46,3 +46,17 @@ function proxy_off() {
 function proxy_show() {
   env | grep -E 'http_proxy|https_proxy|no_proxy|HTTP_PROXY|HTTPS_PROXY|NO_PROXY'
 }
+
+# 切换到 git 根目录, 如果当前目录不在 git 仓库中, 则切换到 $HOME
+function groot() {
+  local git_root
+  git_root=$(git rev-parse --show-toplevel 2>/dev/null)
+  
+  if [ $? -eq 0 ]; then
+    cd "$git_root" || return
+    echo "已切换到 Git 根目录: $(pwd)"
+  else
+    cd "$HOME" || return
+    echo "已切换到 $HOME"
+  fi
+}
